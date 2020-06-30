@@ -44,10 +44,12 @@ body {
     margin-top: 5px;
 }
 
+
 #menu select {
     float: right;
     margin-bottom: 10px;
     width: 30%;
+    height: 35px;
     text-align: center;
 }
 
