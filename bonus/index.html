@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>js-campominato</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="menu">
+        <div class="box">
+            <h1 id="titolo_messaggio">Campo minato</h1>
+            <div id="message" class="clear">
+                <label for="difficolta">Seleziona la difficoltà</label>
+                <select id="difficolta" name="difficolta">
+                    <option value="0">Facile</option>
+                    <option value="1">Media</option>
+                    <option value="2">Difficile</option>
+                </select>
+            </div>
+
+            <button id="btnPlay" class="btn" type="button" name="button">Gioca</button>
+        </div>
+    </div>
+    <div id="container" class="hidden">
+        <div id="campo"></div>
+
+        <div id="dati">
+            <div id="punteggio">
+                <div class="flex box">
+                    <span>Punteggio </span>
+                    <span id="score">0</span>
+                </div>
+            </div>
+
+            <div id="form" class="box">
+                <div>
+                    <label for="numero">Aggiungi un numero</label>
+                    <input id="number" type="number" name="number" value="" min="1" max="100">
+                </div>
+                <button id="btnAdd" class="btn" type="button" name="button">Invia</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
