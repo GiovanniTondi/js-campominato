@@ -19,13 +19,11 @@ var howManyRand = 16;
 // generare 16 numeri casuali
 var numEsplosivi = [];
 
-var i = 0;
 while (numEsplosivi.length < howManyRand) {
     var numRandom = getRandomIntInclusive(1, maxNum);
     if (!isInArray(numEsplosivi, numRandom)) {
         numEsplosivi.push(numRandom);
     }
-    i++;
 }
 
 console.log(numEsplosivi);
@@ -36,7 +34,6 @@ var mina = false;
 while (numUser.length + numEsplosivi.length < maxNum && !mina) {
     var num = parseInt(prompt("Inserisci un numero!"));
     // controllo
-    console.log(isInArray(numUser, num),!isInRange(num, 1, maxNum));
     if ((isInArray(numUser, num)) || (!isInRange(num, 1, maxNum))) {
         alert("Numero già inserito o fuori range");
     } else if (isInArray(numEsplosivi, num)) {
