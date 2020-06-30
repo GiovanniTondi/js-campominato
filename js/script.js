@@ -13,7 +13,73 @@
     con difficoltà 2 => tra 1 e 50
 */
 
+var maxNum = 100;
+var howManyRand = 16;
 
-// generare numeri casuali
+// generare 16 numeri casuali
+var numEsplosivi = [];
 
-    // controllare le ripetizioni
+var i = 0;
+while (numEsplosivi.length < howManyRand) {
+    var numRandom = getRandomIntInclusive(1, maxNum);
+    if (!isInArray(numEsplosivi, numRandom)) {
+        numEsplosivi.push(numRandom);
+    }
+    i++;
+}
+
+console.log(numEsplosivi);
+
+// Chiedere numeri all'utente
+var numUser = [];
+var mina = false;
+while (numUser.length + numEsplosivi.length < maxNum && !mina) {
+    var num = parseInt(prompt("Inserisci un numero!"));
+    // controllo
+    console.log(isInArray(numUser, num),!isInRange(num, 1, maxNum));
+    if ((isInArray(numUser, num)) || (!isInRange(num, 1, maxNum))) {
+        alert("Numero già inserito o fuori range");
+    } else if (isInArray(numEsplosivi, num)) {
+        mina = true;
+        console.log("Boom!!");
+    } else {
+        numUser.push(num);
+    }
+}
+console.log(numUser);
+
+// punteggio
+if (mina) {
+    var messaggio = "Peccato, hai perso dopo " + numUser.length + " mosse!";
+} else {
+    var messaggio = "Complimenti, hai vinto con " + numUser.length + " mosse!";
+}
+
+console.log(messaggio);
+
+
+
+// Funzioni
+function isInArray(array, val) {
+    var i = 0;
+    while (i < array.length) {
+        if (array[i] == val) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+}
+
+function isInRange(num, min, max) {
+    if (num >= min && num <= max) {
+        return true;
+    }
+    return false;
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //Il max è incluso e il min è incluso
+}
