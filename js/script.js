@@ -13,7 +13,7 @@
     con difficoltà 2 => tra 1 e 50
 */
 
-var maxNum = 100;
+// var maxNum = 100;
 var howManyRand = 16;
 
 // generare 16 numeri casuali
@@ -57,10 +57,10 @@ console.log(messaggio);
 
 
 // Funzioni
-function isInArray(array, val) {
+function isInArray(array, elemento) {
     var i = 0;
     while (i < array.length) {
-        if (array[i] == val) {
+        if (array[i] == elemento) {
             return true;
         }
         i++;

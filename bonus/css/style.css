@@ -70,6 +70,7 @@ body {
     background-color: #333;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0px 0px 15px #333;
 }
 
 .cella {
@@ -172,6 +173,12 @@ body {
     opacity: 0.5;
 }
 
+.blink {
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
 /* animazioni */
 @keyframes evidenziaCella {
     0% {opacity: 0}
@@ -183,6 +190,11 @@ body {
     25% {margin-right: 45px}
     50% {margin-right: 0; margin-left: 45px}
     100% {margin-left: 0}
+}
+
+@keyframes blink {
+    from {background-color: red; color: white;}
+    to {background-color: #bfff0d; color: black;}
 }
 
 

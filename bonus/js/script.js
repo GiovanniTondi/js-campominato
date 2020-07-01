@@ -19,6 +19,9 @@ var numEsplosivi = [];
 var btnAdd = document.getElementById('btnAdd');
 var btnPlay = document.getElementById('btnPlay');
 var errore = 0;
+var numUser = [];
+var mina = false;
+
 
 btnPlay.addEventListener("click", function () {
 
@@ -49,7 +52,6 @@ btnPlay.addEventListener("click", function () {
             campo.innerHTML += '<div id="num'+ i +'" class="cella">'+ (i+1) +'</div>';
         }
 
-
         while (numEsplosivi.length < howManyRand) {
             var numRandom = getRandomIntInclusive(1, maxNum);
             if (!isInArray(numEsplosivi, numRandom)) {
@@ -62,17 +64,15 @@ btnPlay.addEventListener("click", function () {
 });
 
 
-var numUser = [];
-var mina = false;
 btnAdd.addEventListener("click", function () {
 
     var num = parseInt(document.getElementById('number').value);
     // controllo
     if ((isInArray(numUser, num)) || (!isInRange(num, 1, maxNum))) {
         // alert("Numero già inserito o fuori range");
+        errore = 1;
         document.getElementById('menu').classList.remove("hidden");
         document.getElementById('container').classList.add("opacity");
-        errore = 1;
         document.getElementById('titolo_messaggio').innerHTML = "ERRORE!";
         document.getElementById('message').innerHTML = "Numero già inserito o fuori range";
         btnPlay.innerHTML = "Continua";
@@ -81,8 +81,9 @@ btnAdd.addEventListener("click", function () {
         mina = true;
         console.log("Boom!!");
         btnAdd.disabled = true;
+        document.getElementById('num' + (num - 1)).classList.add('blink');
         for (var i = 0; i < numEsplosivi.length; i++) {
-        var id = "num" + (numEsplosivi[i]-1);
+            var id = "num" + (numEsplosivi[i]-1);
             document.getElementById(id).classList.add('mine');
             document.getElementById('container').classList.add('esplosione');
         }
@@ -100,10 +101,10 @@ btnAdd.addEventListener("click", function () {
 
 
 // Funzioni
-function isInArray(array, val) {
+function isInArray(array, elemento) {
     var i = 0;
     while (i < array.length) {
-        if (array[i] == val) {
+        if (array[i] == elemento) {
             return true;
         }
         i++;
